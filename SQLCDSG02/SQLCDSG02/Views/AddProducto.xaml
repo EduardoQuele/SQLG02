@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQLCDSG02.Views.AddProducto"
+             Title="Agregar Producto">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="Center" Padding="15,0,15,0">
+                <Image Source="item.jpg" HeightRequest="75" WidthRequest="75"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Producto: "  VerticalOptions="Center" FontAttributes="Bold" FontSize="Medium" Grid.Column="0" Grid.Row="0"/>
+                    <Entry x:Name="txtProducto" Placeholder="Ingrese el producto" Grid.Column="1" Grid.Row="0"/>
+
+                    <Label Text="Marca: " Grid.Column="0" Grid.Row="1" VerticalOptions="Center" FontAttributes="Bold" FontSize="Medium"/>
+                    <Picker Title="Seleccione una marca" Grid.Column="1" Grid.Row="1" x:Name="ListaMarca"/>
+
+                    <Label Text="Descripcion:  " Grid.Column="0" Grid.Row="2" VerticalOptions="Center" FontAttributes="Bold" FontSize="Medium"/>
+                    <Editor x:Name="txtDescripcion" HeightRequest="150" Grid.Column="1" Grid.Row="2"/>
+
+                    <Label Text="Precio USD: " Grid.Column="0" Grid.Row="3" VerticalOptions="Center" FontAttributes="Bold" FontSize="Medium"/>
+                    <Entry x:Name="txtPrecio" Placeholder="00.00" Keyboard="Numeric" Grid.Column="1" Grid.Row="3"/>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btnGuardar" Text="Guardar"  Grid.Column="0" Grid.Row="0" BorderRadius="15" Clicked="BtnGuardar_Clicked"/>
+                    <Button x:Name="btnCancelar" Text="Cancelar"  Grid.Column="1" Grid.Row="0" BorderRadius="15"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

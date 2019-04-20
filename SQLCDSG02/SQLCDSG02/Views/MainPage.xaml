@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SQLCDSG02"
+             x:Class="SQLCDSG02.MainPage">
+    <!-- Menu de navegación -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Order="Primary" x:Name="NaveAddProducto" Clicked="NaveAddProducto_Clicked"/>
+        <ToolbarItem Text="Help" Order="Secondary"/>
+        <ToolbarItem Text="About Us" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <StackLayout>
+            <!-- Place new controls here -->
+            <ListView x:Name="ListaProductos">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!-- Inicio Menu Items-->
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Eliminar" CommandParameter="{Binding .}" Clicked="MenuEliminar"/>
+                                <!-- En el binding se pone punto para decirle que se van a ocupar toda la informacion que se traen en la consulta-->
+                                <MenuItem Text="Modificar" CommandParameter="{Binding .}" Clicked="MenuModificar"/>
+                            </ViewCell.ContextActions>
+                            <!-- Fin Menu Items -->
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding ImagProd}"
+                                       HeightRequest="50"
+                                       WidthRequest="50" />
+                                    <Label Text="{Binding NombreProd}"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"/>
+                                    <Label Text="{Binding Precio}"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"
+                                       HorizontalOptions="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
